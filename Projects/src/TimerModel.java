@@ -86,5 +86,4 @@ public class TimerModel extends Observable implements ActionListener{
 		setChanged();
 		notifyObservers();
 	}
-
 }

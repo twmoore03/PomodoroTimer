@@ -41,6 +41,7 @@ public class TimerController extends Thread implements ActionListener, Observer{
 	public void updateDisplay() {
 		int seconds = model.getRemainingSeconds();
 		if (seconds == 0) {
+			playSound();
 			model.resetTimer();
 			setDisplay();
 		} else {
@@ -59,7 +60,6 @@ public class TimerController extends Thread implements ActionListener, Observer{
 		switch(buttonText)	{
 		case "Start":
 			model.startTimer();
-			playSound();
 			break;
 		case "Stop":
 			model.stopTimer();
@@ -104,12 +104,9 @@ public class TimerController extends Thread implements ActionListener, Observer{
 		return time;
 	}
 
-
 	public void update(Observable o, Object arg) {
 		updateDisplay();
 	}
-
-	
 	
 	public void playSound() {
 		Sound.ding.play();
