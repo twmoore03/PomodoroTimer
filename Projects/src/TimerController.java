@@ -2,13 +2,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JButton;
 
-public class TimerController implements ActionListener, Observer{
+
+
+public class TimerController extends Thread implements ActionListener, Observer{
 
 	private TimerView view;
 	private TimerModel model;
+	private Sound sound;
 
 	public TimerController(TimerView view, TimerModel model) {
 		this.view = view;
@@ -106,15 +108,11 @@ public class TimerController implements ActionListener, Observer{
 	public void update(Observable o, Object arg) {
 		updateDisplay();
 	}
+
 	
-	//have to add in threading so that it can play the sound while running the timer
+	
 	public void playSound() {
-		try {
-			java.applet.AudioClip clip = java.applet.Applet.newAudioClip
-					(new java.net.URL("file:///Users/twmoore/Music/Sound%5CFiles/Ding.wav"));
-			clip.play();
-		} catch (java.net.MalformedURLException murle) {
-			System.out.println(murle);
-		}	
+		Sound.ding.play();
+		new Thread(this).start();
 	}	
 }

@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 public class Timer {
 
 	public static void main(String[] args) {
+		
+		
 		TimerView view = new TimerView();
 		TimerModel model = new TimerModel();
 		TimerController controller = new TimerController(view, model);
