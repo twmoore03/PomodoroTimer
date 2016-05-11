@@ -7,7 +7,7 @@ import javax.swing.JButton;
 
 
 public class TimerController extends Thread implements ActionListener, Observer{
-
+	
 	private TimerView view;
 	private TimerModel model;
 	private Sound sound;
@@ -26,15 +26,15 @@ public class TimerController extends Thread implements ActionListener, Observer{
 		if (model.getIsWorkCycle()) {
 			model.setRemainingSeconds(25 * 60);
 			seconds = model.getRemainingSeconds();
-			view.modifyTimeLabel(secondsToString(seconds));
+			view.setDisplayTimeLabel(secondsToString(seconds));
 		} else if (model.getIsBreakCycle()) {
 			model.setRemainingSeconds(5 * 60);
 			seconds = model.getRemainingSeconds();
-			view.modifyTimeLabel(secondsToString(seconds));
+			view.setDisplayTimeLabel(secondsToString(seconds));
 		} else if (model.getIsLongBreakCycle()) {
 			model.setRemainingSeconds(15 * 60);
 			seconds = model.getRemainingSeconds();
-			view.modifyTimeLabel(secondsToString(seconds));
+			view.setDisplayTimeLabel(secondsToString(seconds));
 		}	
 	}
 
@@ -43,9 +43,16 @@ public class TimerController extends Thread implements ActionListener, Observer{
 		if (seconds == 0) {
 			playSound();
 			model.resetTimer();
+			
+			if (model.getIsWorkCycle()) {
+				model.setWorkCount(model.getWorkCount() + 1);
+				view.setWorkCountLabel(model.getWorkCount());
+				view.setLongBreakCountdownLabel(model.getLongBreakCountdown());
+			}
+			
 			setDisplay();
 		} else {
-			view.modifyTimeLabel(secondsToString(seconds));
+			view.setDisplayTimeLabel(secondsToString(seconds));
 		}
 	}
 

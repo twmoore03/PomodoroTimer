@@ -14,12 +14,16 @@ public class TimerModel extends Observable implements ActionListener{
 	private Timer timerClock;
 	private int remainingSeconds;
 	
+	private int workCount;
+	
 	public TimerModel() {
 		isWorkCycle = true;
 		isBreakCycle = false;
 		isLongBreakCycle = false;
 		isStarted = false;
 		remainingSeconds = 1500;
+		
+		workCount = 0;
 		
 		
 		timerClock = new Timer(1000, this);
@@ -46,6 +50,14 @@ public class TimerModel extends Observable implements ActionListener{
 		return remainingSeconds;
 	}
 	
+	public int getWorkCount() {
+		return workCount;
+	}
+	
+	public int getLongBreakCountdown() {
+		return 4 - (workCount % 4);
+	}
+	
 	//setter methods
 	public void setIsWorkCycle(Boolean t) {
 		isWorkCycle = t;
@@ -67,6 +79,9 @@ public class TimerModel extends Observable implements ActionListener{
 		remainingSeconds = s;
 	}
 	
+	public void setWorkCount(int i) {
+		workCount = i;
+	}
 	
 	public void startTimer() {
 		timerClock.start();
