@@ -76,7 +76,9 @@ public class TimerModel extends Observable implements ActionListener{
 	}
 	
 	public void setRemainingSeconds(int s) {
-		remainingSeconds = s;
+		if (s > 0) {
+			remainingSeconds = s;
+		}
 	}
 	
 	public void setWorkCount(int i) {

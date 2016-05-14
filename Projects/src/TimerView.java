@@ -16,50 +16,64 @@ public class TimerView extends JPanel {
 	private JLabel display;
 	private JLabel workCount;
 	private JLabel longBreakCountdown;
+
 	private JPanel buttonPanel;
 	private JPanel cyclesPanel;
 	private JPanel historyPanel;
-	
-	private int workCountNumber;
+    private JPanel modifyPanel;
 	
 	public TimerView() {
 		setLayout(new BorderLayout());
-		
+
 		cyclesPanel = new JPanel();
 		cyclesPanel.setLayout(new GridLayout(0,3));
-		
 		JButton work = new JButton("Work");
 		JButton rest = new JButton("Rest");
 		JButton longRest = new JButton("Long Rest");
-		
 		cyclesPanel.add(work);
 		cyclesPanel.add(rest);
 		cyclesPanel.add(longRest);
 		add(cyclesPanel, BorderLayout.NORTH);
-		
+
+
 		historyPanel = new JPanel();
 		historyPanel.setLayout(new BoxLayout(historyPanel, BoxLayout.PAGE_AXIS));
+        historyPanel.setAlignmentY(SwingConstants.CENTER);
+
 		workCount = new JLabel();
 		setWorkCountLabel(0);
 		longBreakCountdown = new JLabel();
 		setLongBreakCountdownLabel(4);
-		
+
 		historyPanel.add(workCount);
 		historyPanel.add(longBreakCountdown);
 		add(historyPanel, BorderLayout.WEST);
-		
+
+
 		display = new JLabel();
 		display.setHorizontalAlignment(SwingConstants.CENTER);
 		display.setFont(new Font("Serif", Font.BOLD, 40));
 		add(display, BorderLayout.CENTER);
-		
+
+
+        modifyPanel = new JPanel();
+        modifyPanel.setLayout(new BoxLayout(modifyPanel, BoxLayout.PAGE_AXIS));
+        modifyPanel.setAlignmentY(SwingConstants.CENTER);
+
+        JButton plus = new JButton("+");
+        JButton minus = new JButton("-");
+        modifyPanel.add(plus);
+        modifyPanel.add(minus);
+        add(modifyPanel, BorderLayout.EAST);
+
+
 		buttonPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(0,3));
-		
+
 		JButton start = new JButton("Start");
 		JButton stop = new JButton("Stop");
 		JButton reset = new JButton("Reset");
-		
+
 		buttonPanel.add(start);
 		buttonPanel.add(stop);
 		buttonPanel.add(reset);
@@ -89,5 +103,10 @@ public class TimerView extends JPanel {
 			JButton b = (JButton) c;
 			b.addActionListener(l);
 		}
+
+        for (Component c: modifyPanel.getComponents()) {
+            JButton b = (JButton) c;
+            b.addActionListener(l);
+        }
 	}
 }

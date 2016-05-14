@@ -22,17 +22,14 @@ public class TimerController extends Thread implements ActionListener, Observer{
 	}
 
 	public void setDisplay() {
-		int seconds = 0;
+		int seconds;
 		if (model.getIsWorkCycle()) {
-			model.setRemainingSeconds(25 * 60);
 			seconds = model.getRemainingSeconds();
 			view.setDisplayTimeLabel(secondsToString(seconds));
 		} else if (model.getIsBreakCycle()) {
-			model.setRemainingSeconds(5 * 60);
 			seconds = model.getRemainingSeconds();
 			view.setDisplayTimeLabel(secondsToString(seconds));
 		} else if (model.getIsLongBreakCycle()) {
-			model.setRemainingSeconds(15 * 60);
 			seconds = model.getRemainingSeconds();
 			view.setDisplayTimeLabel(secondsToString(seconds));
 		}	
@@ -75,7 +72,16 @@ public class TimerController extends Thread implements ActionListener, Observer{
 			model.resetTimer();
 			setDisplay();
 			break;
+		case "+":
+			model.setRemainingSeconds(model.getRemainingSeconds() + 60);
+			setDisplay();
+			break;
+		case "-":
+			model.setRemainingSeconds(model.getRemainingSeconds() - 60);
+			setDisplay();
+			break;
 		case "Work":
+			model.setRemainingSeconds(25 * 60);
 			model.setIsWorkCycle(true);
 			model.setIsBreakCycle(false);
 			model.setIsLongBreakCycle(false);
@@ -83,6 +89,7 @@ public class TimerController extends Thread implements ActionListener, Observer{
 			model.resetTimer();
 			break;
 		case "Rest":
+			model.setRemainingSeconds(5 * 60);
 			model.setIsWorkCycle(false);
 			model.setIsBreakCycle(true);
 			model.setIsLongBreakCycle(false);
@@ -90,6 +97,7 @@ public class TimerController extends Thread implements ActionListener, Observer{
 			model.resetTimer();
 			break;
 		case "Long Rest":
+			model.setRemainingSeconds(15 * 60);
 			model.setIsWorkCycle(false);
 			model.setIsBreakCycle(false);
 			model.setIsLongBreakCycle(true);
@@ -103,12 +111,11 @@ public class TimerController extends Thread implements ActionListener, Observer{
 
 	public String secondsToString(int seconds) {
 		int minutes = 0;
-		if (seconds > 60) {
+		if (seconds >= 60) {
 			minutes = seconds / 60;
 			seconds = seconds % 60;
-		} 
-		String time = String.format("%d:%02d", minutes, seconds);
-		return time;
+		}
+		return String.format("%d:%02d", minutes, seconds);
 	}
 
 	public void update(Observable o, Object arg) {
