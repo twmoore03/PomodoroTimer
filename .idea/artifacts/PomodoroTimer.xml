@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PomodoroTimer">
+    <output-path>$PROJECT_DIR$/out/artifacts/PomodoroTimer</output-path>
+    <root id="archive" name="PomodoroTimer.jar">
+      <element id="module-output" name="Projects" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Projects/src/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
