@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41823173-cb3e-4dcc-b375-a7ca425bf288" name="Default" comment="Added ability to modify work/break times&#10;">
+    <list default="true" id="41823173-cb3e-4dcc-b375-a7ca425bf288" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Projects/TimerController.class" afterPath="$PROJECT_DIR$/out/production/Projects/TimerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Projects/TimerModel.class" afterPath="$PROJECT_DIR$/out/production/Projects/TimerModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Projects/TimerView.class" afterPath="$PROJECT_DIR$/out/production/Projects/TimerView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/src/TimerController.java" afterPath="$PROJECT_DIR$/Projects/src/TimerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/src/TimerModel.java" afterPath="$PROJECT_DIR$/Projects/src/TimerModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projects/src/TimerView.java" afterPath="$PROJECT_DIR$/Projects/src/TimerView.java" />
     </list>
     <ignored path="PomodoroTimer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -166,7 +167,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -618,15 +619,23 @@
       <workItem from="1463176257868" duration="72000" />
       <workItem from="1463176344246" duration="70000" />
       <workItem from="1463176421005" duration="82000" />
-      <workItem from="1463205349500" duration="2791000" />
+      <workItem from="1463205349500" duration="2909000" />
     </task>
+    <task id="LOCAL-00001" summary="Added ability to modify work/break times&#10;">
+      <created>1463209355017</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1463209355017</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4595000" />
+    <option name="totallyTimeSpent" value="4713000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="43" width="1260" height="733" extended-state="0" />
+    <frame x="10" y="43" width="1260" height="733" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
