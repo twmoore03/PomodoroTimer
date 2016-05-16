@@ -64,7 +64,6 @@ public class TimerController extends Thread implements ActionListener, Observer{
 		switch(buttonText)	{
 		case "Start":
 			model.startTimer();
-			playSound();
 			break;
 		case "Stop":
 			model.stopTimer();
