@@ -35,6 +35,20 @@ public class TimerController extends Thread implements ActionListener, Observer{
 		}	
 	}
 
+	public void resetTimer() {
+		int seconds;
+		if (model.getIsWorkCycle()) {
+			seconds = 1500;
+			view.setDisplayTimeLabel(secondsToString(seconds));
+		} else if (model.getIsBreakCycle()) {
+			seconds = 300;
+			view.setDisplayTimeLabel(secondsToString(seconds));
+		} else if (model.getIsLongBreakCycle()) {
+			seconds = 900;
+			view.setDisplayTimeLabel(secondsToString(seconds));
+		}
+	}
+
 	public void updateDisplay() {
 		int seconds = model.getRemainingSeconds();
 		if (seconds == 0) {
@@ -70,7 +84,7 @@ public class TimerController extends Thread implements ActionListener, Observer{
 			break;
 		case "Reset":
 			model.resetTimer();
-			setDisplay();
+			resetTimer();
 			break;
 		case "+":
 			model.setRemainingSeconds(model.getRemainingSeconds() + 60);
